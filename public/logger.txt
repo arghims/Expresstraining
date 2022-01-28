@@ -1,0 +1,3 @@
+GET
+/logs
+Fri Jan 28 2022
