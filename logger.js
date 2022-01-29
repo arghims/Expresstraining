@@ -9,12 +9,14 @@ const loggerMw=(req,res,next)=>{
     console.log(req.method)
     console.log(req.url)
     console.log(new Date().toDateString())
-    // let data={
-    //     method:req.method,
-    //     url:req.url
-    // }
-    out = req.method + "\n" + req.url + "\n" + new Date().toDateString()
-    fs.writeFileSync("./public/logger.txt",out.toString())
+    let data={
+        method:req.method,
+        url:req.url,
+        Date: new Date().toDateString()
+    }
+    // out = req.method + "\n" + req.url + "\n" + new Date().toDateString()
+    // fs.writeFileSync("./public/logger.txt",out.toString())
+    fs.writeFileSync("./public/logger.txt",JSON.stringify(data))
    
     next()
 }
